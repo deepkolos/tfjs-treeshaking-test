@@ -1,0 +1,122 @@
+<!-- Copyright 2019 Google LLC. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+==============================================================================-->
+
+<style>
+  body {
+    margin: 25px;
+  }
+
+  #main {
+    position: relative;
+    margin: 50px 0;
+  }
+
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  #description {
+    margin-top: 20px;
+    width: 600px;
+  }
+
+  #description-title {
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  a {
+    display: block;
+    color: rgb(58, 185, 207);
+  }
+  #links {
+    margin-bottom: 30px;
+  }
+</style>
+
+<body>
+  <div id="main">
+    <h2>FaceLandMark Tensorflow.js TreeShaking</h2>
+    <video
+      id="video"
+      playsinline
+      style="-webkit-transform: scaleX(-1); transform: scaleX(-1); width: auto; height: auto"
+    ></video>
+    <canvas id="output"></canvas>
+    <div id="description">
+      <ul>
+        <li>treeshake (true/false)</li>
+        <li>
+          import full / partial<br />import * as tf from 'tfjs'(full)<br />import * as tf from
+          'tfjs-core'(partial/partial-core)<br />import '@tensorflow/tfjs-backend-cpu'(partial)<br />import
+          '@tensorflow/tfjs-backend-webgl'(partial)
+        </li>
+        <li>custom mobule (true/false)</li>
+      </ul>
+
+      <div id="links"></div>
+      <iframe id="vis" style="width: 1000; height: 1000"></iframe>
+    </div>
+    <video
+      id="video"
+      playsinline
+      style="
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        visibility: hidden;
+        width: auto;
+        height: auto;
+      "
+    ></video>
+  </div>
+</body>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.6/dat.gui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/r16/Stats.min.js"></script> -->
+
+<script>
+  let type = location.search.replace('?type=', '');
+  const types = [
+    'full',
+    'full-treeshake',
+    'partial',
+    'partial-treeshake',
+    'custom-full',
+    'custom-full-treeshake',
+    'custom-partial',
+    'custom-partial-treeshake',
+    'custom-partial-core',
+    'custom-partial-core-treeshake',
+  ];
+  if (types.indexOf(type) == -1) {
+    console.log('unknown type', type, 'reset to', types[types.length - 1]);
+    type = types[types.length - 1];
+  }
+  const script = document.createElement('script');
+  script.src = `dist/${type}/index_rollup.js`;
+  document.body.appendChild(script);
+
+  const vis = document.getElementById('vis');
+  vis.src = `dist/${type}/index_rollup.js.html`;
+
+  const links = document.getElementById('links');
+  types.forEach(t => {
+    const a = document.createElement('a');
+    a.href = `index.html?type=${t}`;
+    a.innerText = t;
+    links.appendChild(a);
+  });
+</script>
