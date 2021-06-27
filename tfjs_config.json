@@ -16,7 +16,16 @@
     "Reshape",
     "Identity",
     "Sigmoid",
-    "ResizeBilinear"
+    "ResizeBilinear",
+
+    "Sub",
+    "Relu",
+    "StridedSlice",
+    "Pack",
+    "Concat",
+    "Slice",
+    "Multiply",
+    "NonMaxSuppressionV3"
   ],
   "backends": ["cpu", "webgl"],
   "models": ["./models/facemesh/model.json", "./models/blazeface/model.json"],

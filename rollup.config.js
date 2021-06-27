@@ -69,7 +69,7 @@ function getPlugins(options) {
     replaceModelUrl(),
     resolve({ browser: true }),
     commonjs({ include: ['node_modules/**'] }),
-    // terser({ output: { comments: false } }),
+    terser({ output: { comments: false } }),
     // serve(),
   ];
 
@@ -93,7 +93,8 @@ function makeBundle(useCustomTfjs, treeshake, input, outputPath) {
       ...getPlugins({
         useCustomTfjs: useCustomTfjs,
         customTfjsPath: './custom_tfjs/custom_tfjs.js',
-        customTfjsCorePath: './custom_tfjs/custom_tfjs_core.js',
+        customTfjsCorePath: './custom_tfjs/custom_tfjs.js',
+        // customTfjsCorePath: './custom_tfjs/custom_tfjs_core.js',
         customOpsPath: './custom_tfjs/custom_ops_for_converter.js',
         visualize: true,
         visPath: `${outputPath}/index_rollup.js.html`,

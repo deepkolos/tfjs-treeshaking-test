@@ -25,8 +25,6 @@ export * from '@tensorflow/tfjs-converter';
 
 //backend = cpu
 export * from '@tensorflow/tfjs-backend-cpu/dist/base';
-import {fromPixelsConfig as FromPixels_cpu} from '@tensorflow/tfjs-backend-cpu/dist/kernels/FromPixels';
-registerKernel(FromPixels_cpu);
 import {castConfig as Cast_cpu} from '@tensorflow/tfjs-backend-cpu/dist/kernels/Cast';
 registerKernel(Cast_cpu);
 import {expandDimsConfig as ExpandDims_cpu} from '@tensorflow/tfjs-backend-cpu/dist/kernels/ExpandDims';
@@ -57,6 +55,22 @@ import {sigmoidConfig as Sigmoid_cpu} from '@tensorflow/tfjs-backend-cpu/dist/ke
 registerKernel(Sigmoid_cpu);
 import {resizeBilinearConfig as ResizeBilinear_cpu} from '@tensorflow/tfjs-backend-cpu/dist/kernels/ResizeBilinear';
 registerKernel(ResizeBilinear_cpu);
+import {subConfig as Sub_cpu} from '@tensorflow/tfjs-backend-cpu/dist/kernels/Sub';
+registerKernel(Sub_cpu);
+import {reluConfig as Relu_cpu} from '@tensorflow/tfjs-backend-cpu/dist/kernels/Relu';
+registerKernel(Relu_cpu);
+import {stridedSliceConfig as StridedSlice_cpu} from '@tensorflow/tfjs-backend-cpu/dist/kernels/StridedSlice';
+registerKernel(StridedSlice_cpu);
+import {packConfig as Pack_cpu} from '@tensorflow/tfjs-backend-cpu/dist/kernels/Pack';
+registerKernel(Pack_cpu);
+import {concatConfig as Concat_cpu} from '@tensorflow/tfjs-backend-cpu/dist/kernels/Concat';
+registerKernel(Concat_cpu);
+import {sliceConfig as Slice_cpu} from '@tensorflow/tfjs-backend-cpu/dist/kernels/Slice';
+registerKernel(Slice_cpu);
+import {multiplyConfig as Multiply_cpu} from '@tensorflow/tfjs-backend-cpu/dist/kernels/Multiply';
+registerKernel(Multiply_cpu);
+import {nonMaxSuppressionV3Config as NonMaxSuppressionV3_cpu} from '@tensorflow/tfjs-backend-cpu/dist/kernels/NonMaxSuppressionV3';
+registerKernel(NonMaxSuppressionV3_cpu);
 
 //backend = webgl
 export * from '@tensorflow/tfjs-backend-webgl/dist/base';
@@ -92,3 +106,19 @@ import {sigmoidConfig as Sigmoid_webgl} from '@tensorflow/tfjs-backend-webgl/dis
 registerKernel(Sigmoid_webgl);
 import {resizeBilinearConfig as ResizeBilinear_webgl} from '@tensorflow/tfjs-backend-webgl/dist/kernels/ResizeBilinear';
 registerKernel(ResizeBilinear_webgl);
+import {subConfig as Sub_webgl} from '@tensorflow/tfjs-backend-webgl/dist/kernels/Sub';
+registerKernel(Sub_webgl);
+import {reluConfig as Relu_webgl} from '@tensorflow/tfjs-backend-webgl/dist/kernels/Relu';
+registerKernel(Relu_webgl);
+import {stridedSliceConfig as StridedSlice_webgl} from '@tensorflow/tfjs-backend-webgl/dist/kernels/StridedSlice';
+registerKernel(StridedSlice_webgl);
+import {packConfig as Pack_webgl} from '@tensorflow/tfjs-backend-webgl/dist/kernels/Pack';
+registerKernel(Pack_webgl);
+import {concatConfig as Concat_webgl} from '@tensorflow/tfjs-backend-webgl/dist/kernels/Concat';
+registerKernel(Concat_webgl);
+import {sliceConfig as Slice_webgl} from '@tensorflow/tfjs-backend-webgl/dist/kernels/Slice';
+registerKernel(Slice_webgl);
+import {multiplyConfig as Multiply_webgl} from '@tensorflow/tfjs-backend-webgl/dist/kernels/Multiply';
+registerKernel(Multiply_webgl);
+import {nonMaxSuppressionV3Config as NonMaxSuppressionV3_webgl} from '@tensorflow/tfjs-backend-webgl/dist/kernels/NonMaxSuppressionV3';
+registerKernel(NonMaxSuppressionV3_webgl);
